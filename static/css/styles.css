@@ -1,0 +1,230 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #fdfcfb, #e2d1c3);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 30px 0;
+    color: #c0413b;
+    background: #ffffffaa;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+h1::before {
+    content: "🚗";
+    font-size: 1.5rem;
+    display: inline-block;
+    transform: translateY(-2px);
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filter-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    flex: 1;
+}
+
+.filter-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.filter-item select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.filter-item select:focus {
+    border-color: #c0413b;
+    outline: none;
+}
+
+.checkbox-item {
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.checkbox-item label {
+    font-weight: normal;
+    margin-bottom: 0;
+    color: #444;
+    cursor: pointer;
+}
+
+#use_all_regions, #use_full_age_range {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.buttons-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#submit_filter, #clear_filter {
+    padding: 10px 20px;
+    background: #c0413b;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(192,65,59,0.3);
+    transition: transform 0.2s, background 0.2s;
+}
+
+#submit_filter:hover, #clear_filter:hover {
+    background: #a33631;
+    transform: translateY(-2px);
+}
+
+.metrics {
+    background: #ffffffdd;
+    backdrop-filter: blur(5px);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 40px;
+    font-size: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.metrics div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.metrics div strong {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#results-table {
+    background: #ffffffcc;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    animation: fadeIn 0.3s ease;
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    background: #fff;
+    font-size: 14px;
+    min-width: 800px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    white-space: nowrap;
+    text-align: left;
+}
+
+th {
+    background: #f7f7f7;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+tr:hover {
+    background: #f1f1f1;
+    transition: background 0.2s;
+}
+
+.no-data {
+    font-size: 16px;
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .filter-row, .metrics {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-item {
+        min-width: 100%;
+    }
+
+    .metrics div {
+        align-items: flex-start;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
